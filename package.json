@@ -4,5 +4,7 @@
   "main": "index.js",
   "repository": "https://github.com/KaiWedekind/vuejs-graphql.git",
   "author": "Kai Wedekind <wedekind.kai@googlemail.com> (https://www.kaiwedekind.com/)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+  }
 }
