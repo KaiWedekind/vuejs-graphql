@@ -1,19 +1,18 @@
 <template>
   <div>
-    <students/>
+    <contacts/>
   </div>
 </template>
 
 <script>
-import Students from '../components/Students.vue'
+import Contacts from '../components/Contacts.vue'
 
 export default {
-  name: 'hello',
   data () {
     return {}
   },
   components: {
-    'students': Students
+    'contacts': Contacts
   }
 }
 </script>
