@@ -38,6 +38,28 @@ module.exports = {
             return (Array.isArray(contacts)) ? contacts : [contacts];
         }
     },
+    Contact: {
+        courses (parent, args, { db }) {
+            console.log(parent);
+            return [
+                {
+                    id: "S1d7HVq1k",
+                    name: "Learning GraphQL",
+                    author: "Eve Porcello"
+                },
+                {
+                    id: "S1a7kVq1k",
+                    name: "GraphQL: Data Fetching with Relay",
+                    author: "Emmanuel Henri"
+                },
+                {
+                    id: "t1a7gVk1y",
+                    name: "Learning Apollo",
+                    author: "Emmanuel Henri"
+                }
+            ]
+        }
+    },
     Mutation: {
         addContact (root, args, { db, shortid}) {
             const id = shortid.generate()
@@ -49,7 +71,9 @@ module.exports = {
                             .find({ id })
                             .value()
 
-            pubsub.publish(CONTACT_ADDED, { contact });
+            console.log('contact', contact);
+
+            pubsub.publish(CONTACT_ADDED, { contactAdded: contact });
             return contact;
         },
         updateContact (root, args, { db }) {

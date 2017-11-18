@@ -6,9 +6,9 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
 const { createServer } = require('http');
-const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
-
+const graphqlHTTP = require('express-graphql');
 const { execute, subscribe } = require('graphql');
+const { PubSub } = require('graphql-subscriptions');
 const { SubscriptionServer } = require('subscriptions-transport-ws');
 
 const shortid = require('shortid')
@@ -31,12 +31,10 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/graphql', graphqlExpress({ schema, context }));
-app.use('/explorer', graphiqlExpress({ 
-  endpointURL: '/graphql',
-  subscriptionsEndpoint: `ws://localhost:${port}/subscriptions`
-}));
+app.use('/explorer', graphqlHTTP({ schema, context, graphiql: true }));
+app.use('/graphql', graphqlHTTP({ schema, context, graphiql: false }));
 
+const pubsub = new PubSub();
 const server = createServer(app);
 
 server.listen(port, () => {
