@@ -8,7 +8,8 @@
       </div>
     </section>
     <ul>
-      <li v-for="(contact, index) in contacts" :key="index" :data-group="index==0 || contact.last_name[0] !== contacts[index - 1].last_name[0] ? contact.last_name[0] : null">
+      <li v-for="(contact, index) in contacts" :key="index"
+      :data-group="index==0 || contact.last_name[0] !== contacts[index - 1].last_name[0] ? contact.last_name[0] : null">
         <div>{{ contact.first_name }} <strong>{{ contact.last_name }}</strong></div>
         <small>{{contact.email}}</small>
       </li>
@@ -35,7 +36,7 @@ export default {
         image
       }
     }`,
-    contacts: gql`{ 
+    contacts: gql`{
       contacts: Contacts(sortBy: "last_name") {
         id
         first_name
