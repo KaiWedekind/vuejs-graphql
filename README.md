@@ -6,26 +6,26 @@
 
 **Application**
 ```
-    cd app
+cd app
 ```
 ```
-    npm install
+npm install
 ```
 
 **Server**
 ```
-    cd server
+cd server
 ```
 ```
-    npm install
+npm install
 ```
 
 ### Start Server
 ```
-    cd server
+cd server
 ```
 ```
-    npm start
+npm start
 ```
 
 Listening at http://localhost:3000
@@ -33,10 +33,10 @@ Listening at http://localhost:3000
 
 ### Start Application
 ```
-    cd app
+cd app
 ```
 ```
-    npm run dev
+npm run dev
 ```
 
 Listening at http://localhost:9000
